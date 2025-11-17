@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Discover Uganda — Destinations</title>
+  <link rel="stylesheet" href="web.css">
+
+  <style>
+    body { background: #f5f5f5; font-family: Arial, sans-serif; margin: 0; }
+    header, footer { background: #2c3e50; color: white; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header a.logo { color: white; text-decoration: none; font-size: 1.6rem; font-weight: bold; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav ul li a { color: white; text-decoration: none; padding: 15px 0; display: block; }
+    nav ul li a.active { border-bottom: 2px solid #e63946; }
+
+    /* HERO */
+    .dest-hero {
+      height: 45vh;
+      background: url('uganda-hero.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .dest-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .dest-hero h1 { position: relative; font-size: 3rem; z-index: 1; }
+
+    /* GRID */
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 50px 20px;
+    }
+
+    /* CARD */
+    .destination-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .destination-card:hover { transform: scale(1.03); }
+    .destination-card img { width: 100%; height: 200px; object-fit: cover; transition: 0.4s; }
+    .destination-card:hover img { transform: scale(1.1); }
+    .card-body { padding: 15px; text-align: center; }
+    .card-body h3 { margin-bottom: 8px; color: #2c3e50; }
+    .card-body p { font-size: 0.95rem; color: #555; }
+    .learn-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: #d7263d;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+    .modal-content {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 12px;
+      padding: 30px;
+      position: relative;
+      text-align: left;
+      color: #333;
+    }
+    .modal-content img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: #d7263d;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+    .modal-content h2 { margin-top: 0; }
+    .modal-content p { line-height: 1.6; margin-bottom: 15px; }
+
+    /* BOOKING / PAYMENT */
+    .booking-section { padding: 30px 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .booking-section h2, .booking-section h3 { color: #2c3e50; }
+    .booking-section .btn { margin: 5px; padding: 8px 14px; background:#d7263d; color:white; border:none; border-radius:6px; cursor:pointer; }
+    .booking-section textarea { width:100%; padding:10px; margin:10px 0; border-radius:6px; border:1px solid #ccc; }
+    .success { color: green; font-weight:bold; margin-top:10px; }
+
+    footer { text-align: center; padding: 20px 0; }
+    .end{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">Discover Uganda</a>
+    <nav id="mainNav" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destination.html" class="active">Destinations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+         <li><a href="about us.html">about us</a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="dest-hero">
+  <h1>Explore Uganda’s Top Destinations</h1>
+</section>
+
+<main class="container">
+  <section class="destinations-grid">
+
+    <!-- Destination Cards with Learn More + Book Now -->
+    <article class="destination-card">
+      <img src="waterfall2.jpeg" alt="Murchison Falls">
+      <div class="card-body">
+        <h3>Murchison Falls</h3>
+        <p>Witness the Nile's dramatic waterfall & wildlife.</p>
+        <button class="learn-btn" onclick="openModal('modal1')">Learn More</button>
+        <a href= target="_blank" class="learn-btn">Watch Video</a>
+        <button class="learn-btn" onclick="openBooking('Murchison Falls')">Book Now</button>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="waterfall.jpeg" alt="Jinja - Source of the Nile">
+      <div class="card-body">
+        <h3>Jinja — The Source of the Nile</h3>
+        <p>Whitewater rafting, cultural tours, and lakeside adventures.</p>
+        <button class="learn-btn" onclick="openModal('modal4')">Learn More</button>
+         <a href=https://youtu.be/tC84u5hfReg target="_blank" class="learn-btn">Watch Video</a>
+        <button class="learn-btn" onclick="openBooking('Jinja — The Source of the Nile')">Book Now</button>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="kidepo.jpeg" alt="Queen Elizabeth">
+      <div class="card-body">
+        <h3>Queen Elizabeth National Park</h3>
+        <p>A Safari Like No Other: Queen Elizabeth National Park</p>
+        <button class="learn-btn" onclick="openModal('modal0')">Learn More</button>
+        <a href=https://youtu.be/9TaDzP1xbX4 target="_blank" class="learn-btn">Watch Video</a>
+        <button class="learn-btn" onclick="openBooking('Queen Elizabeth National Park')">Book Now</button>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="bwindi.jpeg" alt="Bwindi">
+      <div class="card-body">
+        <h3>Bwindi Forest</h3>
+        <p>Home to mountain gorillas and rare biodiversity.</p>
+        <button class="learn-btn" onclick="openModal('modal2')">Learn More</button>
+        <a href=https://youtu.be/_Wru48N8LJo target="_blank" class="learn-btn">Watch Video</a>
+        <button class="learn-btn" onclick="openBooking('Bwindi Forest')">Book Now</button>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="bunyonyi.jpeg" alt="Lake Bunyonyi">
+      <div class="card-body">
+        <h3>Lake Bunyonyi</h3>
+        <p>Peaceful lake with islands, perfect for relaxation.</p>
+        <button class="learn-btn" onclick="openModal('modal3')">Learn More</button>
+        <a href=https://youtu.be/ShPQOdNeJGs target="_blank" class="learn-btn">Watch Video</a>
+        <button class="learn-btn" onclick="openBooking('Lake Bunyonyi')">Book Now</button>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- BOOKING / PAYMENT SECTION -->
+  <section class="booking-section" style="display:none; margin-top:50px;">
+    <h2>Book Your Adventure</h2>
+
+    <div class="booking-attractions">
+      <p>Select a tourist attraction:</p>
+      <button class="btn" onclick="showMethods('Murchison Falls')">Murchison Falls</button>
+      <button class="btn" onclick="showMethods('Jinja — The Source of the Nile')">Jinja — The Source of the Nile</button>
+      <button class="btn" onclick="showMethods('Queen Elizabeth National Park')">Queen Elizabeth National Park</button>
+      <button class="btn" onclick="showMethods('Bwindi Forest')">Bwindi Forest</button>
+      <button class="btn" onclick="showMethods('Lake Bunyonyi')">Lake Bunyonyi</button>
+    </div>
+
+    <div class="booking-methods" style="display:none; margin-top:20px;">
+      <h3 id="selectedAttraction"></h3>
+      <p>Select a payment method:</p>
+      <button class="btn" onclick="showProcedures('Bank')">Bank</button>
+      <button class="btn" onclick="showProcedures('Credit Card')">Credit Card</button>
+      <button class="btn" onclick="showProcedures('Mobile Money')">Mobile Money</button>
+      <button class="btn" onclick="showProcedures('PayPal')">PayPal</button>
+    </div>
+
+    <div class="booking-procedures" style="display:none; margin-top:20px;">
+      <h3 id="selectedMethod"></h3>
+      <form id="bookingForm">
+        <div id="procedureText"></div>
+        <textarea placeholder="Enter details here..." required></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+      <div id="successMsg" class="success"></div>
+    </div>
+
+  </section>
+
+</main>
+
+    <div class="end">
+      <p>NAME:MATOVU JOVAN</p>
+      <p>REGNO:2025_D302_13364</p>
+      <p>COURSE:DIT</p>
+    </div>
+  
+
+<!-- MODALS (unchanged from your code) -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal1')">X</button>
+    <img src="waterfall3.jpeg" alt="Murchison Falls">
+    <h2>Murchison Falls National Park</h2>
+    <p>Murchison Falls, located in northwestern Uganda.Murchison Falls, located in northwestern Uganda within Murchison Falls National Park, is one of the country’s most breathtaking natural landmarks. The park, which spans about 3,840 square kilometers, is the largest in Uganda and is situated along the Victoria Nile, just downstream of Lake Albert. The falls themselves occur where the Nile is forced through a narrow gorge approximately seven meters wide before plunging 43 meters into the river below, creating a spectacular display of power and mist. Named after Sir Roderick Murchison, a British geologist who explored the region in the 19th century, Murchison Falls is often referred to as the “Devil’s Cauldron” because of the sheer force and volume of water crashing through the gorge.
+
+The surrounding landscape is a striking contrast of lush greenery and open savannah, providing a haven for a remarkable diversity of wildlife. Visitors to the park can encounter elephants, giraffes, lions, hippos, crocodiles, buffaloes, and over 450 species of birds, making it a paradise for nature lovers and wildlife enthusiasts. The falls themselves offer multiple ways to experience their beauty, including boat trips from Paraa to the base of the falls, which provide close encounters with hippos, crocodiles, and aquatic birds. Hiking trails lead to the top of the falls, offering panoramic views of the river funneling through the gorge, while game drives across the park reveal the rich diversity of savannah animals. The Nile and surrounding wetlands are also ideal for fishing and birdwatching, adding to the range of activities available to visitors.
+
+Murchison Falls combines natural power, scenic beauty, and abundant wildlife, making it a must-see destination for anyone visiting Uganda. The energy of the falls has even been harnessed for hydroelectric power, yet the focus of the area remains on tourism and conservation. The combination of dramatic waterfalls, vibrant landscapes, and diverse wildlife ensures that a visit to Murchison Falls is an unforgettable experience, offering both adventure and a profound appreciation of Uganda’s natural wonders.</p>
+  </div>
+</div>
+
+<div id="modal0" class="modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal0')">X</button>
+    <img src="kidepo.jpeg" alt="Queen Elizabeth">
+    <h2>Queen Elizabeth National Park</h2>
+    <p>Queen Elizabeth National Park, located in western Uganda. Queen Elizabeth National Park, located in western Uganda, is one of the country’s most famous and diverse wildlife destinations, covering approximately 1,978 square kilometers and stretching across the Kazinga Channel, which links Lake Edward and Lake George. The park features a remarkable variety of habitats, including savannah, wetlands, forests, and crater lakes, which together support over 95 mammal species and more than 600 bird species, making it a paradise for safari enthusiasts and birdwatchers alike. It is also culturally significant, as several local communities have lived alongside its wildlife for generations, maintaining a unique relationship with the land. Visitors to the park can enjoy thrilling safaris, spotting elephants, lions, leopards, hippos, buffaloes, and antelopes roaming freely across the savannah. One of the park’s most famous attractions is the Kazinga Channel, where boat safaris offer close encounters with massive pods of hippos, crocodiles, and a wide variety of birds. The Ishasha sector is particularly renowned for its rare tree-climbing lions, a phenomenon where lions rest in fig trees during the heat of the day, creating one of Africa’s most iconic wildlife experiences. Beyond wildlife, the park also offers scenic crater lakes, rolling hills, and lush forests to explore, as well as opportunities for guided nature walks and cultural experiences with local communities. With its combination of diverse ecosystems, abundant wildlife, striking landscapes, and accessibility from major towns like Kampala and Fort Portal, Queen Elizabeth National Park provides an unforgettable adventure for anyone seeking to experience the beauty and richness of Uganda’s natural world.</p>
+  </div>
+</div>
+
+<div id="modal4" class="modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal4')">X</button>
+    <img src="waterfall2.jpeg" alt="Jinja - Source of the Nile">
+    <h2>Jinja — The Source of the Nile</h2>
+    <p>Jinja is Uganda's adventure capital. Jinja, a vibrant town in eastern Uganda, is famously known as the Source of the Nile, where the mighty river begins its journey from Lake Victoria and winds its way northward through Africa. This historic and scenic location attracts visitors from around the world, offering a unique blend of natural beauty, adventure, and cultural significance. The Nile at Jinja is surrounded by lush greenery and rolling landscapes, creating a stunning backdrop for activities such as white-water rafting, kayaking, boat cruises, and fishing, making it one of the top adventure tourism spots in Uganda. Beyond adrenaline-filled experiences, Jinja also provides opportunities to explore local culture, markets, and traditional fishing communities along the riverbanks. The town has grown into a hub for tourism, with cozy lodges, riverside resorts, and guided tours that allow visitors to witness the impressive flow of the Nile as it emerges from Lake Victoria. Its combination of breathtaking scenery, thrilling activities, and historical importance as the starting point of the world’s longest river makes Jinja an unforgettable destination for nature lovers, adventurers, and anyone curious about Africa’s iconic waterways.</p>
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal2')">X</button>
+    <img src="bwindi.jpeg" alt="Bwindi Forest">
+    <h2>Bwindi Impenetrable Forest</h2>
+    <p>Bwindi is a UNESCO World Heritage site. Bwindi Impenetrable National Park, located in southwestern Uganda along the border with the Democratic Republic of Congo, is one of the world’s most extraordinary and unique natural reserves, covering about 331 square kilometers of dense, misty forest so thick it is often described as “impenetrable.” The park is globally renowned for being home to nearly half of the world’s population of mountain gorillas, making it a critical site for conservation and a bucket-list destination for wildlife enthusiasts. Beyond gorillas, Bwindi hosts a remarkable diversity of wildlife, including chimpanzees, forest elephants, golden monkeys, bushbucks, and over 350 species of birds, creating a paradise for both primate lovers and birdwatchers. Visitors can embark on guided gorilla trekking adventures, where small groups are led by trained guides through the dense forest to observe these gentle giants in their natural habitat, an awe-inspiring experience that emphasizes respect for wildlife and conservation. The park’s lush environment is filled with rare plants, orchids, and towering trees, offering a mystical and breathtaking backdrop for every visit. Local communities, including the Batwa people, live near the park and provide cultural insights into traditional forest life and conservation efforts, adding a human dimension to the wilderness experience. With its combination of thrilling wildlife encounters, stunning scenery, and rich cultural heritage, Bwindi Impenetrable National Park stands as one of Uganda’s most remarkable destinations, offering visitors a rare opportunity to connect deeply with nature and witness some of the planet’s most endangered species in their natural home.</p>
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal3')">X</button>
+    <a href="videos/murchison.mp4" target="_blank" class="learn-btn">Watch Video</a>
+    <img src="bunyonyi.jpeg" alt="Lake Bunyonyi">
+    <h2>Lake Bunyonyi</h2>
+    <p>Lake Bunyonyi is serene. Lake Bunyonyi, often called the “Switzerland of Africa,” is a stunning freshwater lake located in southwestern Uganda near the town of Kabale. Nestled in a series of terraced hills at an altitude of about 1,962 meters (6,437 feet) above sea level, the lake is famous for its serene beauty, calm waters, and scenic landscapes. With a maximum depth of around 900 meters, it is one of the deepest lakes in Africa and is dotted with 29 small islands, some of which are inhabited by local communities, each with its own unique stories and traditions. Lake Bunyonyi’s peaceful waters and lush surroundings make it a popular destination for relaxation, canoeing, swimming, and birdwatching, as the area hosts a variety of bird species including kingfishers and herons.
+
+The lake is also rich in culture and history, with local legends and tales connected to the islands and surrounding hills. Visitors can interact with the Batwa and Bakiga communities, learn about their traditions, and explore the islands via boat trips, which provide breathtaking views of the terraced hills and reflections on the clear water. Unlike many other lakes, Lake Bunyonyi is free from crocodiles and hippos, making it safer for swimming and other water activities. Its combination of breathtaking scenery, tranquil atmosphere, and cultural richness makes Lake Bunyonyi a perfect getaway for those seeking both adventure and relaxation, offering a unique glimpse into one of Uganda’s most picturesque and peaceful natural destinations.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Discover Uganda — Student Project</p>
+    <nav>
+      <ul style="display:flex; gap:15px; justify-content:center; list-style:none; padding:0;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destination.html">Destinations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about us.html">about us</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // MODAL FUNCTIONS
+  function openModal(id){
+    document.getElementById(id).style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal(id){
+    document.getElementById(id).style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal){
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // BOOKING / PAYMENT FUNCTIONS
+  function openBooking(attraction){
+    document.querySelector('.booking-section').style.display = 'block';
+    showMethods(attraction);
+    window.scrollTo({ top: document.querySelector('.booking-section').offsetTop, behavior: 'smooth' });
+  }
+
+  function showMethods(attraction){
+    document.querySelector('.booking-methods').style.display = 'block';
+    document.querySelector('.booking-procedures').style.display = 'none';
+    document.getElementById('selectedAttraction').textContent = "Booking: " + attraction;
+  }
+
+  function showProcedures(method){
+    document.querySelector('.booking-procedures').style.display = 'block';
+    document.getElementById('selectedMethod').textContent = "Payment Method: " + method;
+
+    const procedureText = document.getElementById('procedureText');
+    if(method === "Bank"){
+      procedureText.innerHTML = "<p>Bank Payment Procedures:<br>1. Choose your bank.<br>2. Transfer the amount.<br>3. Note transaction ID.<br>4. Fill details below and submit.</p>";
+    } else if(method === "Credit Card"){
+      procedureText.innerHTML = "<p>Credit Card Payment Procedures:<br>1. Enter card number, expiry, and CVV.<br>2. Verify amount.<br>3. Fill details below and submit.</p>";
+    } else if(method === "Mobile Money"){
+      procedureText.innerHTML = "<p>Mobile Money Procedures:<br>1. Dial your mobile money service.<br>2. Send payment.<br>3. Note transaction ID.<br>4. Fill details below and submit.</p>";
+    } else if(method === "PayPal"){
+      procedureText.innerHTML = "<p>PayPal Procedures:<br>1. Log in to PayPal.<br>2. Enter payment amount.<br>3. Confirm.<br>4. Fill details below and submit.</p>";
+    }
+  }
+
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const textarea = this.querySelector('textarea');
+    if(textarea.value.trim() === ""){
+      alert("Please fill in all required details!");
+      return;
+    }
+    document.getElementById('successMsg').textContent = "Successfully Sent!";
+    this.reset();
+  });
+  submitBtn.addEventListener('click', () => {
+    if(!destinationSelect.value || !paymentMethodSelect.value || !procedureText.value.trim()){
+        successMsg.style.color = 'red';
+        successMsg.textContent = 'Please fill all fields before sending.';
+        return;
+    }
+
+    successMsg.style.color = 'green';
+    successMsg.textContent = '✔ Payment info sent successfully!';
+    procedureText.value = '';
+    paymentMethodSelect.value = '';
+    destinationSelect.value = '';
+    paymentMethodDiv.style.display = 'none';
+    procedureDiv.style.display = 'none';
+});
+</script>
+
+
+</body>
+</html>
