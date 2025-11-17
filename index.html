@@ -1,11 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover Uganda — Home</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <meta name="description" content="Discover Uganda - travel, wildlife, culture and stunning landscapes." />
+  <link rel="stylesheet" href="web.css" />
 </head>
+
 <body>
-    
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Discover Uganda</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.html" data-key="nav_home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="destination.html" data-key="nav_destinations">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html" data-key="nav_gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav_contact">Contact</a></li>
+      </ul>
+
+      <!-- Language select -->
+      <select id="languageSelect" class="form-select ms-3" style="width:150px;">
+        <option value="en" selected>English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+        <option value="sw">Kiswahili</option>
+        <option value="zh">中文</option>
+        <option value="ar">العربية</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="position-relative">
+   <img src="uganda.png" class="card-img-top" alt="Murchison Falls" />
+  <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+    <h1 data-key="hero_title" class="fw-bold display-4">
+      Welcome to <span class="text-warning">Discover Uganda</span>
+    </h1>
+    <p class="mt-3" data-key="hero_desc">Explore Uganda's wildlife, lakes, forests, mountains and cultural beauty.</p>
+
+    <div class="mt-4">
+      <a href="destination.html" class="btn btn-warning me-2" data-key="btn_explore">Explore Destinations</a>
+      <a href="gallery.html" class="btn btn-outline-light" data-key="btn_gallery">View Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="container my-5">
+  <h2 class="text-center mb-4 text-white" data-key="highlights_title">Top Highlights of Uganda</h2>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="images.jpeg" class="card-img-top" alt="Murchison Falls" />
+        <div class="card-body">
+          <h5 class="card-title" data-key="highlight1_title">Murchison Falls</h5>
+          <p class="card-text" data-key="highlight1_desc">The world's most powerful waterfall along the Nile river.</p>
+          <a href="destination.html" class="text-primary small" data-key="highlight1_link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="download.jpeg" class="card-img-top" alt="Bwindi Forest" />
+        <div class="card-body">
+          <h5 class="card-title" data-key="highlight2_title">Bwindi Impenetrable Forest</h5>
+          <p class="card-text" data-key="highlight2_desc">Home to mountain gorillas — a life-changing adventure.</p>
+          <a href="destination.html" class="text-primary small" data-key="highlight2_link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="lake-bunyonyi-001.webp" class="card-img-top" alt="Lake Bunyonyi" />
+        <div class="card-body">
+          <h5 class="card-title" data-key="highlight3_title">Lake Bunyonyi</h5>
+          <p class="card-text" data-key="highlight3_desc">A peaceful lake surrounded by green hills.</p>
+          <a href="destination.html" class="text-primary small" data-key="highlight3_link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="container my-5 p-4 bg-light rounded">
+  <h2 data-key="about_title">About This Project</h2>
+  <p data-key="about_desc">
+    This website is a student project showcasing Uganda's tourism, culture & wildlife.
+  </p>
+
+  <ul>
+    <li><strong data-key="coursework_label">Coursework:</strong> Web Authoring / Website Development by group L</li>
+    <li><strong data-key="page-lebel">BY:</strong> NAME: KYOMUHENDO Judith: 2025-B291-14056</li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <!-- Contact Section -->
+  <div class="col-md-4">
+  <h5 class="text-uppercase">Contact</h5>
+  <p>Email: jkyomuhendo94@gmail.com</p>
+  <p>Phone: +256 784035862</p>
+  <p>Address: Kampala, Uganda</p>
+  </div>
+    <p class="mb-2 mb-md-0">&copy; <span id="year"></span> Discover Uganda — Student Project</p>
+
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="destination.html">Destinations</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="gallery.html">Gallery</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Scroll-top Button -->
+<button id="scrollTop" class="btn btn-warning position-fixed bottom-0 end-0 m-4">↑</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="web.js"></script>
+
 </body>
 </html>
