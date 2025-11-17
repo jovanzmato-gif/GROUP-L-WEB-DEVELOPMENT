@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Discover Uganda — Destinations</title>
+    <link rel="stylesheet" href="destination.css">
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Discover Uganda</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="destination.html">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about us.html">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="py-5 bg-primary text-white text-center">
+        <h1 class="fw-bold">Explore Uganda’s Top Destinations</h1>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="container my-5">
+
+        <!-- DESTINATION CARDS -->
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="waterfall2.jpeg" class="card-img-top" alt="Murchison Falls">
+                    <div class="card-body">
+                        <h5 class="card-title">Murchison Falls</h5>
+                        <p>Witness the Nile's dramatic waterfall & wildlife.</p>
+                        <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modal1">Learn More</button>
+                        <a href="#" target="_blank" class="btn btn-success mb-2">Watch Video</a>
+                        <button class="btn btn-warning" onclick="openBooking('Murchison Falls')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="waterfall.jpeg" class="card-img-top" alt="Jinja - Source of the Nile">
+                    <div class="card-body">
+                        <h5 class="card-title">Jinja — The Source of the Nile</h5>
+                        <p>Whitewater rafting, cultural tours, & lakeside adventures.</p>
+                        <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modal4">Learn More</button>
+                        <a href="https://youtu.be/tC84u5hfReg" target="_blank" class="btn btn-success mb-2">Watch Video</a>
+                        <button class="btn btn-warning" onclick="openBooking('Jinja — The Source of the Nile')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="kidepo.jpeg" class="card-img-top" alt="Queen Elizabeth">
+                    <div class="card-body">
+                        <h5 class="card-title">Queen Elizabeth National Park</h5>
+                        <p>A Safari Like No Other.</p>
+                        <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modal0">Learn More</button>
+                        <a href="https://youtu.be/9TaDzP1xbX4" target="_blank" class="btn btn-success mb-2">Watch Video</a>
+                        <button class="btn btn-warning" onclick="openBooking('Queen Elizabeth National Park')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="bwindi.jpeg" class="card-img-top" alt="Bwindi">
+                    <div class="card-body">
+                        <h5 class="card-title">Bwindi Forest</h5>
+                        <p>Home to mountain gorillas & rare biodiversity.</p>
+                        <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modal2">Learn More</button>
+                        <a href="https://youtu.be/_Wru48N8LJo" target="_blank" class="btn btn-success mb-2">Watch Video</a>
+                        <button class="btn btn-warning" onclick="openBooking('Bwindi Forest')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="bunyonyi.jpeg" class="card-img-top" alt="Lake Bunyonyi">
+                    <div class="card-body">
+                        <h5 class="card-title">Lake Bunyonyi</h5>
+                        <p>Peaceful lake with islands, perfect for relaxation.</p>
+                        <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modal3">Learn More</button>
+                        <a href="https://youtu.be/ShPQOdNeJGs" target="_blank" class="btn btn-success mb-2">Watch Video</a>
+                        <button class="btn btn-warning" onclick="openBooking('Lake Bunyonyi')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOKING / PAYMENT SECTION -->
+  <section class="booking-section" style="display:none; margin-top:50px;">
+    <h2>Book Your Adventure</h2>
+
+    <div class="booking-attractions">
+      <p>Select a tourist attraction:</p>
+      <button class="btn" onclick="showMethods('Murchison Falls')">Murchison Falls</button>
+      <button class="btn" onclick="showMethods('Jinja — The Source of the Nile')">Jinja — The Source of the Nile</button>
+      <button class="btn" onclick="showMethods('Queen Elizabeth National Park')">Queen Elizabeth National Park</button>
+      <button class="btn" onclick="showMethods('Bwindi Forest')">Bwindi Forest</button>
+      <button class="btn" onclick="showMethods('Lake Bunyonyi')">Lake Bunyonyi</button>
+    </div>
+
+    <div class="booking-methods" style="display:none; margin-top:20px;">
+      <h3 id="selectedAttraction"></h3>
+      <p>Select a payment method:</p>
+      <button class="btn" onclick="showProcedures('Bank')">Bank</button>
+      <button class="btn" onclick="showProcedures('Credit Card')">Credit Card</button>
+      <button class="btn" onclick="showProcedures('Mobile Money')">Mobile Money</button>
+      <button class="btn" onclick="showProcedures('PayPal')">PayPal</button>
+    </div>
+
+    <div class="booking-procedures" style="display:none; margin-top:20px;">
+      <h3 id="selectedMethod"></h3>
+      <form id="bookingForm">
+        <div id="procedureText"></div>
+        <textarea placeholder="Enter details here..." required></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+      <div id="successMsg" class="success"></div>
+    </div>
+
+  </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-3 text-center mt-5">
+        <p class="mb-0">&copy; <span id="year"></span> Discover Uganda — Student Project</p>
+    </footer>
+
+    <!-- MODALS (Bootstrap version) -->
+    <!-- MURCHISON FALLS -->
+    <div class="modal fade" id="modal1" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-3">
+                <h2>Murchison Falls National Park</h2>
+                <video src="https://youtu.be/UcKgDepi338"></video>
+                <img src="waterfall3.jpeg" class="img-fluid mb-3">
+                <p>Murchison Falls, often hailed as the most powerful waterfall in the world, is the breathtaking centerpiece of Murchison Falls National Park in northwestern Uganda. Here, the mighty Nile River is dramatically forced through a narrow gorge just seven meters wide before plunging about 43 meters into the turbulent “Devil’s Cauldron” below, creating a thunderous roar and a misty spray that can be felt from a distance. This natural spectacle is surrounded by a rich tapestry of wildlife and landscapes, from rolling savannas dotted with acacia trees to lush riverbanks teeming with hippos, crocodiles, and a dazzling array of bird species. The park itself, Uganda’s largest and oldest conservation area, offers an unforgettable blend of scenic beauty and biodiversity, with elephants, giraffes, lions, and leopards roaming freely. Visitors can experience the falls from a boat cruise along the Nile, which offers close-up views of the churning waters and the animals that gather along the river, or from a hike to the top, where the sheer force of the water and the panoramic views leave a lasting impression. Murchison Falls is not just a natural wonder—it’s a symbol of Uganda’s wild heart, where raw power and serene beauty meet in perfect harmony.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUEEN ELIZABETH -->
+    <div class="modal fade" id="modal0" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-3">
+                <h2>Queen Elizabeth National Park</h2>
+                <video src="https://youtu.be/rI9t0FzzI20"></video>
+                <img src="kidepo.jpeg" class="img-fluid mb-3">
+                <p>Queen Elizabeth National Park (QENP) spans the districts of Kasese, Kamwenge, Rubirizi, and Rukungiri. The park is approximately 400 kilometres (250 mi) by road south-west of Kampala, Uganda's capital and largest city.[2] The city of Kasese lies to the northeast of the park, while the town of Rubirizi is to the southeast.[citation needed] The park adjoins Kyambura Game Reserve to the east, which itself adjoins the Kigezi Game Reserve (including the Maramagambo Forest) and thus the Kibale National Park to the northeast. The Virunga National Park in the Democratic Republic of the Congo lies across the border to the west. Together, these protected places completely encircle Lake Edward. The Rwenzori Mountains National Park in Uganda lies not far to the northwest.[3]
+Confusingly, during the 1970s and 1980s, Western conservationists usually referred to the park as Rwenzori National Park.[4][5][6]
+History
+In 1921, a rinderpest epidemic and sleeping sickness among the indigenous inhabitants of the region, the pastoralist Basongora, caused great death and emigration from the region. The epidemic was believed to be caused by the colonial government under the guise of a livestock vaccination campaign. The game increased, and the British colonial government decided to evict the remaining people from perhaps 90% of their lands to create game reserves. Their homes were torched and their livestock slaughtered, causing them to flee across the border and seek refuge in what is now the Democratic Republic of the Congo.[7][8][9]
+The park was founded in 1952 as Kazinga National Park by combining the Lake George and Lake Edward Game Reserves.[7] It was renamed two years later to commemorate a visit by Queen Elizabeth II,[10] and the last remaining communal grazing rights of the Songora herders were rescinded, causing thousands more to move across the border with their herds into the Virunga National Park, most only beginning to return after 1964 due to the strife caused by the Mulele rebellion there.[9]
+In 2006 the Basongora were forced to flee across the border from the DRC, settling in the park to the north of Lake Edward with their livestock. Attacks by predators on their property, and lack of compensation when their animals are killed, caused them to leave out carcasses laced with poison out to solve the problem, killing off eleven lions in 2018, among numerous incidents. This caused those in the international tourism and conservation industry to refer to the situation as "national disaster".[8][11][12] Previously, poachers killed six elephants in the park in 2015, triggering both anger and frustration within the Ugandan conservation community.[13]</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JINJA -->
+    <div class="modal fade" id="modal4" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-3">
+                <h2>Jinja — The Source of the Nile</h2>
+                <video src="https://youtu.be/hbny4PjISBg"></video>
+                <img src="waterfall2.jpeg" class="img-fluid mb-3">
+                <p>The source of the Nile is in Jinja and is popular as the source of the longest river in the whole world. The Nile is also the largest River in Africa with the source starting from Jinja in Uganda. River Nile covers about 6,695 kilometers long with two tributes.
+</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BWINIDI -->
+    <div class="modal fade" id="modal2" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-3">
+                <h2>Bwindi Forest</h2>
+                <img src="bwindi.jpeg" class="img-fluid mb-3">
+                <p>Located in south-western Uganda at the junction of the plain and mountain forests, Bwindi National Park covers 33,000 hectares and is known for its exceptional biodiversity, with more than 200 species of trees, over 100 species of ferns, more than 350 birds and over 200 butterflies, as well as many endangered species, including the mountain gorilla.
+</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BUNYONYI -->
+    <div class="modal fade" id="modal3" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-3">
+                <h2>Lake Bunyonyi</h2>
+                <video src="https://youtu.be/QA9jKO-mseU"></video>
+                <img src="bunyonyi.jpeg" class="img-fluid mb-3">
+                <p>Bunyonyi translated means “place of many birds” and indeed it’s a bird watcher’s and nature lover’s delight. The Lake is a relatively narrow body of water sprinkled with tens of tiny islands, surrounded by green hills and guarded from a distance by the same volcano that probably created it.
+</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+      <div>
+        <p>NAME:MATOVU JOVAN</p>
+        <P>REGNO:2025_D302_13364</P>
+        <P>COURSE:DIT</P>
+      </div>
+    </footer>
+    <script src="destination.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
