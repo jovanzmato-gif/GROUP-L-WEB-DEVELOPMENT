@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Discover Uganda — About</title>
+  <meta name="description" content="Learn about Uganda's history, culture, and natural wonders." />
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    .site-header {
+      background: #1b263b;
+      color: white;
+      padding: 15px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    .main-nav a.active,
+    .main-nav a:hover {
+      color: #e63946;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* HERO */
+    .hero-about {
+      height: 50vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                  url('https://source.unsplash.com/random/1600x900/?uganda') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-about h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-about p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    /* ABOUT CONTENT */
+    .about-section {
+      padding: 50px 0;
+    }
+
+    .about-section h2 {
+      font-size: 2rem;
+      color: #1b263b;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* FACTS SECTION */
+    .facts-section {
+      background: #1b263b;
+      color: white;
+      padding: 40px 20px;
+      border-radius: 8px;
+      margin: 40px 0;
+    }
+
+    .facts-section h2 {
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .fact-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .fact-card h3 {
+      color: #e63946;
+      margin-bottom: 10px;
+    }
+
+    /* CULTURE SECTION */
+    .culture-section {
+      padding: 40px 0;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .culture-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .culture-image {
+      height: 160px;
+    }
+
+    .culture-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .culture-content {
+      padding: 20px;
+    }
+
+    .culture-content h3 {
+      color: #1b263b;
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #1b263b;
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #e63946;
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .hero-about h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+      
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Discover Uganda</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-about">
+    <div class="container">
+      <h1>discover Uganda tours</h1>
+      <p>The Pearl of Africa - Land of stunning landscapes and rich culture</p>
+    </div>
+  </section>
+
+  <!-- ABOUT CONTENT -->
+  <main class="about-section">
+    <div class="container">
+      <h2>Welcome to  Uganda</h2>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <p>Uganda, known as the "Pearl of Africa," is a beautiful country in East Africa with diverse landscapes, from mountains and lakes to forests and savannas.</p>
+          
+          <p>It's home to rare mountain gorillas, diverse wildlife, and friendly people. Uganda offers incredible nature experiences and rich cultural traditions.</p>
+          
+          <p>With over 50 indigenous languages and diverse traditions, visitors can experience authentic African culture alongside amazing natural wonders.</p>
+        </div>
+        
+        <div class="about-image">
+          <img src="https://source.unsplash.com/random/600x400/?uganda,people" alt="Ugandan culture">
+        </div>
+      </div>
+      
+      <!-- FACTS SECTION -->
+      <section class="facts-section">
+        <h2>Uganda Facts</h2>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <h3>Population</h3>
+            <p>45+ million</p>
+          </div>
+          <div class="fact-card">
+            <h3>Capital</h3>
+            <p>Kampala</p>
+          </div>
+          <div class="fact-card">
+            <h3>Language</h3>
+            <p>English</p>
+          </div>
+          <div class="fact-card">
+            <h3>Independence</h3>
+            <p>1962</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- CULTURE SECTION -->
+      <section class="culture-section">
+        <h2>Culture & Traditions</h2>
+        <div class="culture-grid">
+          <div class="culture-card">
+            <div class="culture-image">
+              <img src="dance.avif" alt="Music and dance">
+            </div>
+            <div class="culture-content">
+              <h3>Music & Dance</h3>
+              <p>Vibrant traditional dances and modern music are central to Ugandan celebrations and ceremonies.</p>
+            </div>
+          </div>
+          
+          <div class="culture-card">
+            <div class="culture-image">
+              <img src="local food.jpg" alt="Ugandan food">
+            </div>
+            <div class="culture-content">
+              <h3>Food</h3>
+              <p>Staple foods include matooke, posho, and the popular street food Rolex (chapati with eggs).</p>
+            </div>
+          </div>
+          
+          <div class="culture-card">
+            <div class="culture-image">
+              <img src="craft.avif" alt="Ugandan crafts">
+            </div>
+            <div class="culture-content">
+              <h3>Arts & Crafts</h3>
+              <p>Beautiful baskets, pottery, and wood carvings that preserve cultural traditions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2023 Discover Uganda — Student Project</p>
+      <p>&copy; NAME: MIYINGO GILBERT</p>
+      <p>&copy; 2022-B071-10403</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script>
+    // Scroll to top button
+    const scrollBtn = document.querySelector('.scroll-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollBtn.style.display = 'block';
+      } else {
+        scrollBtn.style.display = 'none';
+      }
+    });
+    
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
