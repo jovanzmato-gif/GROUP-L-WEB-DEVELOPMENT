@@ -1,0 +1,65 @@
+/* Color */
+:root {
+  --accent: #ba1f3b;
+  --bg: #3a3a3b;
+  --text: #143df2;
+}
+/* Image section */
+img {
+  height:50vh ;
+  object-fit: cover;
+}
+/* page body */
+body {
+  background-color: #3a3a3b;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Navbar */
+
+.navbar-brand {
+  color: aquamarine;
+}
+
+.nav-link {
+  color: antiquewhite;
+  padding: .45rem .75rem ;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(0, 0, 0, 0.947);
+  color: red !important;
+}
+
+
+.btn-accent {
+  background: var(--accent);
+  color: #602525;
+  border-radius: .75rem;
+  padding: .6rem 1.2rem;
+}
+
+.btn-outline-accent {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: .75rem;
+}
+
+.highlight-card {
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  overflow: hidden;
+  transition: all .25s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+.highlight-card h5 {
+  font-weight: 600;
+}
+
